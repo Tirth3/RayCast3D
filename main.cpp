@@ -26,7 +26,6 @@ std::string sMapAddress = "Map.txt";
 int main()
 {
     sf::Texture UITexture;
-    sf::Music BGMusic;
     float UIangle = 0;
     float ButtonTime = 10.0f;
     float ButtonTimeCounter = 0.0f;
@@ -36,8 +35,6 @@ int main()
         std::cout << "[MAIN] Cannot load ui texture";
     if (!BGTexture.loadFromFile("Images/Background1.png"))
         std::cout << "[MAIN] Cannot load BG texture";
-    if (!BGMusic.openFromFile("Assets/Music1.mp3"))
-        std::cout << "[MAIN] Cannot load BG music";
 
     sf::Sprite UIsprite;
     UIsprite.setTexture(UITexture);
@@ -55,7 +52,7 @@ int main()
     sf::Clock deltaClock;
     std::chrono::high_resolution_clock::time_point start;
     std::chrono::high_resolution_clock::time_point end;
-    BGMusic.play();
+
     while (window.isOpen())
     {
         start = std::chrono::high_resolution_clock::now();
