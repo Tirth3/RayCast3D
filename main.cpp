@@ -32,12 +32,8 @@ int main()
     float ButtonTimeCounter = 0.0f;
     if (!font.loadFromFile("./Assets/Arialn.ttf"))
         std::cout << "[MAIN] Cannot load font";
-    if (!WallTexture.loadFromFile("Images/Wall2.png"))
-        std::cout << "[MAIN] Cannot load Wall texture";
     if (!UITexture.loadFromFile("Images/GameUI1.png"))
         std::cout << "[MAIN] Cannot load ui texture";
-    if (!EntityTexture.loadFromFile("Images/Steve.png"))
-        std::cout << "[MAIN] Cannot load steve texture";
     if (!BGTexture.loadFromFile("Images/Background1.png"))
         std::cout << "[MAIN] Cannot load BG texture";
     if (!BGMusic.openFromFile("Assets/Music1.mp3"))
