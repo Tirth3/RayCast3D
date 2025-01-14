@@ -19,7 +19,7 @@ Entity Steve;
 int Map[iMapWidth][iMapHeight];
 
 bool DrawUI = true;
-bool DrawTexturedWalls = false;
+bool DrawTexturedWalls = true;
 float fMiniMapSize = 200.0f;
 std::string sMapAddress = "Map.txt";
 

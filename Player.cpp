@@ -73,8 +73,8 @@ void Player::CastRays(sf::RenderWindow &window , bool drawtextwalls)
 
 		Ray ray(vPosition, fCurrentAngle);
 		RayHit hit; 
-		ray.CastRayDDA(fDepth , hit);
-		//ray.CastRay(fDepth , hit);
+		//ray.CastRayDDA(fDepth , hit);
+		ray.CastRay(fDepth , hit);
 		//hit.fPerpendicularDistance = hit.fHitDistance * std::abs(cos(DegreeToRadians(fAngle - fCurrentAngle)));
 
 		//DrawLine(vOffset2D + vPosition, vOffset2D + hit.vHitPosition, window);
@@ -128,14 +128,14 @@ void Player::CastRays(sf::RenderWindow &window , bool drawtextwalls)
 					DrawWallStrip(vWallPos, vWallSize, 4, 1, window);
 				}
 				
-				/*sf::Sprite sprite;
+				sf::Sprite sprite;
 				sprite.setPosition(vWallPos);
 				sprite.setTexture(WallTexture);
 				
 				float s = fWallHeight / fMaxWallHeight;
 				sprite.setScale(1, s);
 				sprite.setTextureRect(sf::IntRect(UVPos.x * fMaxWallHeight, UVPos.y, vWallSize.x, vWallSize.y));
-				window.draw(sprite);*/
+				window.draw(sprite);
 			}
 		}
 		else

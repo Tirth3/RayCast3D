@@ -7,7 +7,6 @@ void Ray::CastRay(float fDepth , RayHit& hit)
 
 	while (!IsHitWall && fHitDistance <= fDepth)
 	{
-		fHitDistance += 0.1f;
 
 		int iTestX = (int)(vDirection.x * fHitDistance + vOrigin.x) / iTileSize; 
 		int iTestY = (int)(vDirection.y * fHitDistance + vOrigin.y) / iTileSize;
@@ -18,7 +17,7 @@ void Ray::CastRay(float fDepth , RayHit& hit)
 			IsHitWall = true;
 			break;
 		}
-		
+		fHitDistance += 0.1f;
 	}	
 	
 	hit.vHitPosition = vOrigin + vDirection * fHitDistance;
