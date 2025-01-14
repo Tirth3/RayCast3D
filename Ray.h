@@ -28,7 +28,7 @@ public:
 		vDirection.y = sin(DegreeToRadians(angle));
 	}
 
-	void CastRay(float, RayHit&);
+	void CastRay(float, sf::Vector2f , RayHit&);
 	void CastRayDDA(float , RayHit&);
 };
 

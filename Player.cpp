@@ -73,12 +73,11 @@ void Player::CastRays(sf::RenderWindow &window , bool drawtextwalls)
 
 		Ray ray(vPosition, fCurrentAngle);
 		RayHit hit; 
-		//ray.CastRayDDA(fDepth , hit);
-		ray.CastRay(fDepth , hit);
+		ray.CastRayDDA(fDepth , hit);
+		// uncomment below two line to use trivial raycasting approach
+		//ray.CastRay(fDepth , vDirection , hit);
 		//hit.fPerpendicularDistance = hit.fHitDistance * std::abs(cos(DegreeToRadians(fAngle - fCurrentAngle)));
 
-		//DrawLine(vOffset2D + vPosition, vOffset2D + hit.vHitPosition, window);
-		
 		// calculate the height of wall according to hit distance
 		float fWallHeight = fMaxWallHeight * fProjectionDistance / hit.fPerpendicularDistance;
 		sf::Vector2f vWallPos = { (float)x, (iScreenHeight - fWallHeight) * 0.5f };

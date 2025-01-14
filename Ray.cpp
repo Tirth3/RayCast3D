@@ -1,19 +1,19 @@
 #include "Ray.h"
 
-void Ray::CastRay(float fDepth , RayHit& hit) 
+void Ray::CastRay(float fDepth, sf::Vector2f vPlayerDir , RayHit& hit) 
 {
 	float fHitDistance = 0.0f;
 	bool IsHitWall = false;
-
+	int iTestX, iTestY;
 	while (!IsHitWall && fHitDistance <= fDepth)
 	{
 
-		int iTestX = (int)(vDirection.x * fHitDistance + vOrigin.x) / iTileSize; 
-		int iTestY = (int)(vDirection.y * fHitDistance + vOrigin.y) / iTileSize;
+		iTestX = (int)(vDirection.x * fHitDistance + vOrigin.x) / iTileSize; 
+		iTestY = (int)(vDirection.y * fHitDistance + vOrigin.y) / iTileSize;
 
 		if (Map[iTestX][iTestY] != 0) 
 		{
-			hit.iWallType = Map[iTestX][iTestY];
+			//hit.iWallType = Map[iTestX][iTestY];
 			IsHitWall = true;
 			break;
 		}
@@ -23,6 +23,8 @@ void Ray::CastRay(float fDepth , RayHit& hit)
 	hit.vHitPosition = vOrigin + vDirection * fHitDistance;
 	hit.fHitDistance = fHitDistance;
 	hit.bIsHit = IsHitWall;
+	//if(IsHitWall)
+		hit.iWallType = Map[iTestX][iTestY];
 }
 
 void Ray::CastRayDDA(float fDepth , RayHit &hit)

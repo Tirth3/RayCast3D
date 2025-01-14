@@ -210,3 +210,12 @@ inline void DrawTexture(sf::RenderWindow& window) {
 
 	window.draw(sprite);
 }
+
+inline float VectorAngle(sf::Vector2f v1, sf::Vector2f v2)
+{
+	float f = v1.x * v2.x + v1.y * v2.y;
+	float l1 = std::sqrtf(v1.x * v1.x + v1.y * v1.y);
+	float l2 = std::sqrtf(v2.x * v2.x + v2.y * v2.y);
+
+	return std::acos(f / (l1 * l2));
+}

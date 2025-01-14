@@ -19,7 +19,7 @@ Entity Steve;
 int Map[iMapWidth][iMapHeight];
 
 bool DrawUI = true;
-bool DrawTexturedWalls = true;
+bool DrawTexturedWalls = false;
 float fMiniMapSize = 200.0f;
 std::string sMapAddress = "Map.txt";
 
@@ -85,7 +85,7 @@ int main()
         DrawSky(window);  // Rendering sky and floor in BG
 
         player->CastRays(window , DrawTexturedWalls);  // Casting rays and draw the wall from player
-        //player->DrawMiniMap({ 10.0f , 30.0f } , window , fMiniMapSize);  // Drawing Minimap
+        player->DrawMiniMap({ 10.0f , 30.0f } , window , fMiniMapSize);  // Drawing Minimap
 
         //DrawText(window, font, sf::Vector2f (10.0f , 10.0f ), fps, 16);  // Displaying the current fps
         ButtonTimeCounter++;
